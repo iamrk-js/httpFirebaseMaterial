@@ -1,0 +1,42 @@
+
+
+<div class="row">
+    <div class="col-md-6">
+        <mat-card class="example-card mb-4" *ngIf="postObj; else noPostData">
+            <mat-card-header>
+              <mat-card-title>
+                {{ postObj.title }}
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                {{ postObj.content }}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button
+                mat-raised-button
+                color="primary"
+                mat-button
+                [routerLink]="['/posts', postId, 'edit']"
+              >
+                Edit
+              </button>
+              <button
+              mat-raised-button
+              color="warn"
+              mat-button
+              (click)="onRemove()"
+            >
+              Remove
+            </button>
+            </mat-card-actions>
+          </mat-card>
+          <ng-template #noPostData>
+            <p class="alert alert-warning">
+              No Post Availble !!!
+            </p>
+          </ng-template>
+    </div>
+    <div class="col-md-6"></div>
+</div>
